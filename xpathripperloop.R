@@ -1,5 +1,5 @@
-setwd("C:/LakkeIsLekka/MIDAS/c_R2d2/qhp16/new511")	#put your root directory for writing files here
-TOPL<- c("issuerApplication") 		#insert name of root xml here
+setwd("")	#put your root directory for writing files here
+TOPL<- c("") 		#insert name of root xml here
 L2<- c(NA)
 L3<- c(NA)
 L4<- c(NA)
