@@ -1,5 +1,5 @@
-setwd("")	#put your root directory for writing files here
-TOPL<- c("") 		#insert name of root xml here
+setwd("C:/LakkeIsLekka/MIDAS/c_R2d2/qhp16/new511")	#put your root directory for writing files here
+TOPL<- c("issuerApplication") 		#insert name of root xml here
 L2<- c(NA)
 L3<- c(NA)
 L4<- c(NA)
@@ -12,7 +12,7 @@ L2ct<- 1
 while (L2ct <= length(gog))
 {
 	L2len<-length(gog[[L2ct]])
-	if (L2len ==1 & length(names(gog[[L2ct]]))>0) 
+	if (L2len ==1 & length(names(gog[[L2ct]]))>0 & length(names(gog[[L2ct]][[1]])) <1 ) 
 	{	
 		framey[totalcount,1]<-TOPL
 		framey[totalcount,2]<- names(gog[L2ct])
@@ -21,7 +21,7 @@ while (L2ct <= length(gog))
 		framey[totalcount,1]<-TOPL
 		framey[totalcount,2]<- names(gog[L2ct])
 		framey[totalcount,3]<- names(gog[[L2ct]])
-		framey[totalcount,7]<-  as.character(gog[[L2ct]])
+		framey[totalcount,7]<- as.character(gog[[L2ct]])
 		totalcount<- totalcount+1
 		L2ct<- L2ct+1
 	}
@@ -43,7 +43,7 @@ while (L2ct <= length(gog))
 		while (L3ct <= L2len)
 		{
 			L3len<- length(gog[[L2ct]][[L3ct]])
-			if(L3len ==1 & length(names(gog[[L2ct]][[L3ct]]))>0) 
+			if(L3len ==1 & length(names(gog[[L2ct]][[L3ct]]))>0 &  length(names(gog[[L2ct]][[L3ct]][[1]])) <1 ) 
 			{
 				framey[totalcount,1]<-TOPL
 				framey[totalcount,2]<- names(gog[L2ct])
@@ -54,7 +54,7 @@ while (L2ct <= length(gog))
 				framey[totalcount,2]<- names(gog[L2ct])
 				framey[totalcount,3]<- names(gog[[L2ct]][L3ct])
 				framey[totalcount,4]<- names(gog[[L2ct]][[L3ct]])
-				framey[totalcount,7]<-  as.character(gog[[L2ct]][[L3ct]])
+				framey[totalcount,7]<- as.character(gog[[L2ct]][[L3ct]])
 				totalcount<- totalcount+1
 				L3ct<- L3ct+1 
 			}
@@ -63,7 +63,7 @@ while (L2ct <= length(gog))
 				framey[totalcount,1]<-TOPL
 				framey[totalcount,2]<- names(gog[L2ct])
 				framey[totalcount,3]<- names(gog[[L2ct]][L3ct])
-				framey[totalcount,7]<- as.character(gog[[L2ct]][[L3ct]])
+				framey[totalcount,7]<- as.character(gog[[L2ct]][L3ct])
 				totalcount<- totalcount+1
 				L3ct<- L3ct+1 
 			}
@@ -78,7 +78,7 @@ while (L2ct <= length(gog))
 				while (L4ct <= L3len)
 				{
 				L4len<- length(gog[[L2ct]][[L3ct]][[L4ct]])
-					if (L4len ==1 & length(names(gog[[L2ct]][[L3ct]][[L4ct]]))>0)
+					if (L4len ==1 & length(names(gog[[L2ct]][[L3ct]][[L4ct]]))>0 &  length(names(gog[[L2ct]][[L3ct]][[L4ct]][[1]])) <1 )
 					{
 						framey[totalcount,1]<-TOPL
 						framey[totalcount,2]<- names(gog[L2ct])
@@ -101,7 +101,7 @@ while (L2ct <= length(gog))
 						framey[totalcount,2]<- names(gog[L2ct])
 						framey[totalcount,3]<- names(gog[[L2ct]][L3ct])
 						framey[totalcount,4]<- names(gog[[L2ct]][[L3ct]][L4ct])
-						framey[totalcount,7]<- as.character(gog[[L2ct]][[L3ct]][[L4ct]])
+						framey[totalcount,7]<- as.character(gog[[L2ct]][[L3ct]][L4ct])
 						totalcount<- totalcount+1
 						L4ct<- L4ct+1
 					}
@@ -117,7 +117,8 @@ while (L2ct <= length(gog))
 						while(L5ct<= L4len)
 						{
 						L5len<- length(gog[[L2ct]][[L3ct]][[L4ct]][[L5ct]])
-							if(L5len ==1 & length(names(gog[[L2ct]][[L3ct]][[L4ct]][[L5ct]]))>0)
+							if(L5len ==1 & length(names(gog[[L2ct]][[L3ct]][[L4ct]][[L5ct]]))>0  & length(names(gog[[L2ct]][[L3ct]][[L4ct]][[L5ct]][[1]])) <1 )
+
 							{
 							framey[totalcount,1]<-TOPL
 							framey[totalcount,2]<- names(gog[L2ct])
@@ -143,19 +144,19 @@ while (L2ct <= length(gog))
 							framey[totalcount,3]<- names(gog[[L2ct]][L3ct])
 							framey[totalcount,4]<- names(gog[[L2ct]][[L3ct]][L4ct])
 							framey[totalcount,5]<- names(gog[[L2ct]][[L3ct]][[L4ct]][L5ct])
-							framey[totalcount,7]<- as.character(gog[[L2ct]][[L3ct]][[L4ct]][[L5ct]])
+							framey[totalcount,7]<- as.character(gog[[L2ct]][[L3ct]][[L4ct]][L5ct])
 							totalcount<- totalcount+1
 							L5ct<- L5ct+1
 							}
 							else
 							{	
-								framey[totalcount,1]<-TOPL
-								framey[totalcount,2]<- names(gog[L2ct])
-								framey[totalcount,3]<- names(gog[[L2ct]][L3ct])
-								framey[totalcount,4]<- names(gog[[L2ct]][[L3ct]][L4ct])
-								framey[totalcount,5]<- names(gog[[L2ct]][[L3ct]][[L4ct]][L5ct])
-								framey[totalcount,7]<- c("")
-								totalcount<- totalcount+1
+							framey[totalcount,1]<-TOPL
+							framey[totalcount,2]<- names(gog[L2ct])
+							framey[totalcount,3]<- names(gog[[L2ct]][L3ct])
+							framey[totalcount,4]<- names(gog[[L2ct]][[L3ct]][L4ct])
+							framey[totalcount,5]<- names(gog[[L2ct]][[L3ct]][[L4ct]][L5ct])
+							framey[totalcount,7]<- c("")
+							totalcount<- totalcount+1
 							L6ct<- 1							
 							while(L6ct<=L5len)
 								{
@@ -165,9 +166,10 @@ while (L2ct <= length(gog))
 								framey[totalcount,4]<- names(gog[[L2ct]][[L3ct]][L4ct])
 								framey[totalcount,5]<- names(gog[[L2ct]][[L3ct]][[L4ct]][L5ct])
 								framey[totalcount,6]<- names(gog[[L2ct]][[L3ct]][[L4ct]][[L5ct]][L6ct])
-								framey[totalcount,7]<- as.character(gog[[L2ct]][[L3ct]][[L4ct]][[L5ct]][[L6ct]])
+								framey[totalcount,7]<- as.character(gog[[L2ct]][[L3ct]][[L4ct]][[L5ct]][L6ct])
 								L6ct<- L6ct+1
 								totalcount<- totalcount+1
+								
 								}
 							L5ct<- L5ct+1
 							}
